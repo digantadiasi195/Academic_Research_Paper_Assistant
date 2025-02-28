@@ -13,14 +13,14 @@ The **Academic Research Paper Assistant** is a powerful AI-driven tool that help
 - 🔮 **Generate Future Research Directions**.
 
 ## Home Page
-![Front-End of app](README.md\HomePage.png)
+![Front-End of app](img\HomePage.png)
 
 ## Search Paper
-![Search paper on app](README.md\SearchPaper.png)
+![Search paper on app](img\SearchPaper.png)
 ## Search Paper
-![Search paper on app](README.md\Q&A.png)
+![Search paper on app](img\Q&A.png)
 ## Future Work
-![Query on selected paper](README.md\Future_Work.png)
+![Query on selected paper](img\Future_Work.png)
 ---
 
 ## 🏗️ Tech Stack
