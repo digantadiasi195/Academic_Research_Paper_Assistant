@@ -4,7 +4,7 @@ import json
 import re
 
 # Backend API URL
-API_BASE_URL = "http://127.0.0.1:8000"
+API_BASE_URL = "https://academic-research-paper-assistant.onrender.com"
 
 st.set_page_config(page_title="Academic Research Paper Assistant", layout="wide")
 
