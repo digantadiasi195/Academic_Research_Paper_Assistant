@@ -1,4 +1,5 @@
 #!/bin/bash
-# Install Ollama on Render
+# Enable superuser privileges
+sudo apt update && sudo apt install -y curl
 curl -fsSL https://ollama.com/install.sh | sh
 ollama serve &
