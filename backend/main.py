@@ -48,7 +48,7 @@ app.add_middleware(
 )
 
 # Get database connection details from environment variables
-NEO4J_URI = os.getenv("NEO4J_URI", "bolt://localhost:7687")
+NEO4J_URI = os.getenv("NEO4J_URI", "neo4j+s://3d954014.databases.neo4j.io")
 NEO4J_USERNAME = os.getenv("NEO4J_USERNAME", "neo4j")
 NEO4J_PASSWORD = os.getenv("NEO4J_PASSWORD", "password")
 LLM_MODEL = os.getenv("LLM_MODEL", "deepseek-r1:1.5b")
