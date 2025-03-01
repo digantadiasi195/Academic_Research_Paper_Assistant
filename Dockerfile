@@ -1,8 +1,18 @@
-# Use the official prebuilt Ollama image
-FROM ollama/ollama:latest
+# Use Python base image
+FROM python:3.11
 
-# Expose the Ollama API port
-EXPOSE 11434
+# Set working directory
+WORKDIR /app
 
-# Start Ollama with the correct host binding
-CMD ["ollama", "serve", "--host", "0.0.0.0", "--port", "11434"]
+# Copy and install dependencies
+COPY requirements.txt /app/requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy the entire project
+COPY . /app
+
+# Expose FastAPI port
+EXPOSE 8000
+
+# Start FastAPI
+CMD ["uvicorn", "backend.main:app", "--host", "0.0.0.0", "--port", "8000"]
