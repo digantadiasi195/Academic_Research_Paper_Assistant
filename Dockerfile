@@ -1,27 +1,18 @@
-# Use an Ubuntu base image
-FROM ubuntu:latest
+# Use the official Ollama Docker image
+FROM ollama/ollama:latest
 
-# Set non-interactive mode for apt install
-ENV DEBIAN_FRONTEND=noninteractive
+# Set the working directory
+WORKDIR /app
 
-# Install dependencies
-RUN apt update && apt install -y curl python3 python3-pip
-
-# Install Ollama
-RUN curl -fsSL https://ollama.com/install.sh | sh || true
-
-# Set Python as the default
-RUN ln -s /usr/bin/python3 /usr/bin/python
-
-# Copy the requirements.txt
+# Copy the requirements file
 COPY requirements.txt /app/requirements.txt
 
-# Install Python dependencies
-WORKDIR /app
+# Install Python and dependencies
+RUN apt update && apt install -y python3 python3-pip
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Expose the correct port for Render
 EXPOSE 10000
 
-# Force Ollama to use Render's port
+# Start the Ollama server on the correct port
 CMD ["ollama", "serve", "--port", "10000"]
