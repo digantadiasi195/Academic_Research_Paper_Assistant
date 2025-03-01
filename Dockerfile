@@ -7,7 +7,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 # Install dependencies
 RUN apt update && apt install -y curl python3 python3-pip
 
-# Install Ollama (alternative approach)
+# Install Ollama
 RUN curl -fsSL https://ollama.com/install.sh | sh || true
 
 # Set Python as the default
@@ -20,8 +20,8 @@ COPY requirements.txt /app/requirements.txt
 WORKDIR /app
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Expose the Ollama API port
+# Expose the correct port for Render
 EXPOSE 10000
 
-# Start Ollama and keep the container running
-CMD ["ollama", "serve"]
+# Force Ollama to use Render's port
+CMD ["ollama", "serve", "--port", "10000"]
